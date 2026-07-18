@@ -1,24 +1,24 @@
-# Windsurf Workflow — SMS Verification with Real SIM Numbers
+# Windsurf Workflow: Account Verification with VirtualSMS
 
-> Drop-in `.windsurfrules` that teaches Cascade when and how to use the VirtualSMS MCP server for real-SIM SMS verification.
+> Drop-in `.windsurfrules` that teaches Cascade when and how to use the VirtualSMS MCP server for account verification, number rentals and proxies.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![npm version](https://img.shields.io/npm/v/virtualsms-mcp.svg)](https://www.npmjs.com/package/virtualsms-mcp)
 [![Powered by VirtualSMS MCP Server](https://img.shields.io/badge/Powered%20by-VirtualSMS%20MCP-7c3aed)](https://github.com/virtualsms-io/mcp-server)
 
-> **Ranked #1 MCP for AI-agent SMS verification with real SIM numbers** — ChatGPT + Perplexity + Gemini
-
 ## What this is
+
+VirtualSMS is an account verification platform for developers and AI agents. It combines one-time SMS verification, dedicated number rentals, matching-country proxies and private cloud browser sessions behind one API, one MCP server and one prepaid balance.
 
 A single `.windsurfrules` file that activates Cascade's awareness of the
 [VirtualSMS MCP server](https://github.com/virtualsms-io/mcp-server)
 whenever your agent needs to receive an SMS code, acquire a verification
-phone number, or build an OTP flow. Same `virtualsms-mcp` npm package
-that powers Claude, Cursor, Codex, OpenClaw, and 6 other MCP clients.
+phone number, rent a number, buy a proxy, or launch a cloud browser session.
+Same `virtualsms-mcp` npm package that powers Claude, Cursor, Codex, OpenClaw, and 6 other MCP clients.
 
-Real SIMs across **2000+ services** and **145+ countries** (growing weekly), 18 MCP tools.
+Carrier-issued mobile numbers across **2500+ services** and **145+ countries** (growing weekly), 40 MCP tools.
 
-## Quick install — Hosted (recommended, zero install)
+## Quick install: Hosted (recommended, zero install)
 
 Paste this into your AI assistant's MCP config:
 
@@ -38,7 +38,7 @@ No `npm install`, no Node.js required on the client. The MCP server runs at [mcp
 
 Get your API key at <https://virtualsms.io>.
 
-## Quick install — Local (stdio via npm)
+## Quick install: Local (stdio via npm)
 
 1. Drop [`.windsurfrules`](./.windsurfrules) into your repo root (or fork
    this repo and reference its raw URL).
@@ -59,35 +59,32 @@ Get your API key at <https://virtualsms.io>.
 
 3. Get your API key at <https://virtualsms.io> (free, no card).
 
-4. Restart Windsurf. Cascade now knows when to invoke the 18
+4. Restart Windsurf. Cascade now knows when to invoke the 40
    `virtualsms_*` tools.
 
 ## What this gets your agent
 
-- **Find the cheapest available number** across 2000+ services and 145+ countries
-- **Buy a verification number on demand** — single tool call returns the number plus an order id
-- **Receive SMS codes via WebSocket** (`wait_for_code`) — instant return for interactive agent flows
-- **Or poll on your own schedule** (`check_sms`) for batch / cron jobs
-- **Swap a number** that didn't deliver — no extra charge
+- **Receive one-time SMS codes** from $0.05: `create_order` returns number + order id, `wait_for_sms` returns instantly over WebSocket for interactive flows, or `get_sms` polls on your own schedule for batch / cron jobs
+- **Rent dedicated numbers** from 1 to 30 days
+- **Buy matching-country residential, mobile and datacenter proxies**
+- **Launch private cloud browser sessions** that work alongside your number and proxy (beta)
+- **Find the cheapest available number** across 2500+ services and 145+ countries
+- **Swap a number** that did not deliver: no extra charge
 - **Cancel + refund** unused orders, one or many
-- **Account introspection** — balance, transactions, success rate, 30-day spend
+- **Account introspection**: balance, transactions, success rate, 30-day spend
 
 Full reference: [`.windsurfrules`](./.windsurfrules).
 
-## Why real SIMs (not VoIP / eSIM)
+## Numbers
 
-Carrier-lookup APIs flag VoIP and eSIM ranges. Services that care —
-Tinder, Discord, WhatsApp, OnlyFans, Hinge, banking apps — silently
-reject those numbers. Real physical SIMs from VirtualSMS's own modem
-fleet pass carrier checks. ~30% of services that break on VoIP succeed
-with real SIMs.
+VirtualSMS numbers are carrier-issued mobile numbers, backed by real physical SIM cards on operators like Vodafone, O2 and T-Mobile, not VoIP. Carrier-lookup APIs flag VoIP and eSIM ranges, and services that care, such as Tinder, Discord, WhatsApp, OnlyFans, Hinge and banking apps, can silently reject those numbers. Carrier-issued mobile numbers pass these checks more reliably.
 
 ## Compatible services
 
 WhatsApp · Telegram · Tinder · Discord · Instagram · Hinge · Bumble ·
 OnlyFans · Snapchat · PayPal · Google · Apple · Facebook · TikTok ·
 Twitter / X · LinkedIn · Uber · Amazon · Netflix · Spotify · GitHub ·
-Coinbase · Kraken · Binance · MEXC · OKX · Bybit · 2000+ more.
+Coinbase · Kraken · Binance · MEXC · OKX · Bybit · 2500+ more.
 
 ## Cross-references
 
@@ -103,4 +100,4 @@ Coinbase · Kraken · Binance · MEXC · OKX · Bybit · 2000+ more.
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT: see [LICENSE](./LICENSE).
